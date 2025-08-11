@@ -1,1 +1,316 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมแสดงโค้ดสี (Responsive)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
 
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .color-groups-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 100%;
+        }
+
+        .color-group {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .main-color-button {
+            width: 100%;
+            height: 45px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .main-color-button.light-text {
+            color: #000;
+        }
+
+        .sub-colors-container {
+            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .sub-color-box {
+            width: 90%;
+            height: 40px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .sub-color-code {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .sub-color-code:active {
+            color: #007bff;
+        }
+
+        /* Media Query สำหรับหน้าจอที่กว้างขึ้น (เดสก์ท็อป) */
+        @media (min-width: 768px) {
+            .color-groups-container {
+                gap: 20px;
+            }
+            .color-group {
+                width: calc(33.33% - 20px);
+            }
+            .main-color-button {
+                height: 50px;
+                font-size: 16px;
+            }
+            .sub-colors-container {
+                padding: 20px;
+            }
+            .sub-color-item {
+                width: auto;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>โปรแกรมแสดงโค้ดสี by จ.ส.ต.วสันต์ ขุมทอง</h1>
+    <p>คลิกที่ปุ่มสีหลักเพื่อแสดงเฉดสี จากนั้นคลิกที่โค้ด Hex เพื่อคัดลอก</p>
+
+    <div class="color-groups-container">
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #FF0000;" data-target="red-shades">สีแดง</button>
+            <div class="sub-colors-container" id="red-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffe6e6;"></div><div class="sub-color-code">#FFE6E6</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff9999;"></div><div class="sub-color-code">#FF9999</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff6666;"></div><div class="sub-color-code">#FF6666</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff3333;"></div><div class="sub-color-code">#FF3333</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e60000;"></div><div class="sub-color-code">#E60000</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #b30000;"></div><div class="sub-color-code">#B30000</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #800000;"></div><div class="sub-color-code">#800000</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #00FF00;" data-target="green-shades">สีเขียว</button>
+            <div class="sub-colors-container" id="green-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e6ffe6;"></div><div class="sub-color-code">#E6FFE6</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #99ff99;"></div><div class="sub-color-code">#99FF99</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #66ff66;"></div><div class="sub-color-code">#66FF66</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #33ff33;"></div><div class="sub-color-code">#33FF33</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #00e600;"></div><div class="sub-color-code">#00E600</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #00b300;"></div><div class="sub-color-code">#00B300</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #008000;"></div><div class="sub-color-code">#008000</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #0000FF;" data-target="blue-shades">สีน้ำเงิน</button>
+            <div class="sub-colors-container" id="blue-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e6e6ff;"></div><div class="sub-color-code">#E6E6FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #9999ff;"></div><div class="sub-color-code">#9999FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #6666ff;"></div><div class="sub-color-code">#6666FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #3333ff;"></div><div class="sub-color-code">#3333FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #0000e6;"></div><div class="sub-color-code">#0000E6</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #0000b3;"></div><div class="sub-color-code">#0000B3</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #000080;"></div><div class="sub-color-code">#000080</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button light-text" style="background-color: #FFC0CB;" data-target="pink-shades">สีชมพู</button>
+            <div class="sub-colors-container" id="pink-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffe6f2;"></div><div class="sub-color-code">#FFE6F2</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff99cc;"></div><div class="sub-color-code">#FF99CC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff66b3;"></div><div class="sub-color-code">#FF66B3</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff3399;"></div><div class="sub-color-code">#FF3399</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e60073;"></div><div class="sub-color-code">#E60073</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #b30059;"></div><div class="sub-color-code">#B30059</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #800040;"></div><div class="sub-color-code">#800040</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button light-text" style="background-color: #FFFF00;" data-target="yellow-shades">สีเหลือง</button>
+            <div class="sub-colors-container" id="yellow-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffffcc;"></div><div class="sub-color-code">#FFFFCC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffff99;"></div><div class="sub-color-code">#FFFF99</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffff66;"></div><div class="sub-color-code">#FFFF66</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffff33;"></div><div class="sub-color-code">#FFFF33</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e6e600;"></div><div class="sub-color-code">#E6E600</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #b3b300;"></div><div class="sub-color-code">#B3B300</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #808000;"></div><div class="sub-color-code">#808000</div></div>
+            </div>
+        </div>
+        
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #800080;" data-target="purple-shades">สีม่วง</button>
+            <div class="sub-colors-container" id="purple-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e6ccff;"></div><div class="sub-color-code">#E6CCFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #b380ff;"></div><div class="sub-color-code">#B380FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #804dff;"></div><div class="sub-color-code">#804DFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #4d1aff;"></div><div class="sub-color-code">#4D1AFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #6600cc;"></div><div class="sub-color-code">#6600CC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #4d0099;"></div><div class="sub-color-code">#4D0099</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #330066;"></div><div class="sub-color-code">#330066</div></div>
+            </div>
+        </div>
+        
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #FFA500;" data-target="orange-shades">สีส้ม</button>
+            <div class="sub-colors-container" id="orange-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffe6cc;"></div><div class="sub-color-code">#FFE6CC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffcc99;"></div><div class="sub-color-code">#FFCC99</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff9966;"></div><div class="sub-color-code">#FF9966</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff6633;"></div><div class="sub-color-code">#FF6633</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e65c00;"></div><div class="sub-color-code">#E65C00</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #b34700;"></div><div class="sub-color-code">#B34700</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #803300;"></div><div class="sub-color-code">#803300</div></div>
+            </div>
+        </div>
+        
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #00BFFF;" data-target="cyan-shades">สีฟ้า</button>
+            <div class="sub-colors-container" id="cyan-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #e6f9ff;"></div><div class="sub-color-code">#E6F9FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #99ebff;"></div><div class="sub-color-code">#99EBFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #66d9ff;"></div><div class="sub-color-code">#66D9FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #33c0ff;"></div><div class="sub-color-code">#33C0FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #0099e6;"></div><div class="sub-color-code">#0099E6</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #0073b3;"></div><div class="sub-color-code">#0073B3</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #004d80;"></div><div class="sub-color-code">#004D80</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #8B4513;" data-target="brown-shades">สีน้ำตาล</button>
+            <div class="sub-colors-container" id="brown-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #f5f5dc;"></div><div class="sub-color-code">#F5F5DC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #d2b48c;"></div><div class="sub-color-code">#D2B48C</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #a0522d;"></div><div class="sub-color-code">#A0522D</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #8b4513;"></div><div class="sub-color-code">#8B4513</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #654321;"></div><div class="sub-color-code">#654321</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #3e2723;"></div><div class="sub-color-code">#3E2723</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #2e1d17;"></div><div class="sub-color-code">#2E1D17</div></div>
+            </div>
+        </div>
+        
+        <div class="color-group">
+            <button class="main-color-button light-text" style="background-color: #FFFFFF;" data-target="white-shades">สีขาว/เทา</button>
+            <div class="sub-colors-container" id="white-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ffffff;"></div><div class="sub-color-code">#FFFFFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #f5f5f5;"></div><div class="sub-color-code">#F5F5F5</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #dcdcdc;"></div><div class="sub-color-code">#DCDCDC</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #c0c0c0;"></div><div class="sub-color-code">#C0C0C0</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #a9a9a9;"></div><div class="sub-color-code">#A9A9A9</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #808080;"></div><div class="sub-color-code">#808080</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #696969;"></div><div class="sub-color-code">#696969</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button" style="background-color: #000000;" data-target="black-shades">สีดำ</button>
+            <div class="sub-colors-container" id="black-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #2f4f4f;"></div><div class="sub-color-code">#2F4F4F</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #1a1a1a;"></div><div class="sub-color-code">#1A1A1A</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #0d0d0d;"></div><div class="sub-color-code">#0D0D0D</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #000000;"></div><div class="sub-color-code">#000000</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button light-text" style="background-color: #D4AF37;" data-target="metallic-shades">สีทอง/เงิน</button>
+            <div class="sub-colors-container" id="metallic-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #D4AF37;"></div><div class="sub-color-code">#D4AF37</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #FFD700;"></div><div class="sub-color-code">#FFD700</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #B8860B;"></div><div class="sub-color-code">#B8860B</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #C0C0C0;"></div><div class="sub-color-code">#C0C0C0</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #E6E8FA;"></div><div class="sub-color-code">#E6E8FA</div></div>
+            </div>
+        </div>
+
+        <div class="color-group">
+            <button class="main-color-button light-text" style="background-color: #CCFF00;" data-target="neon-shades">สีสะท้อนแสง</button>
+            <div class="sub-colors-container" id="neon-shades">
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff00ff;"></div><div class="sub-color-code">#FF00FF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff6600;"></div><div class="sub-color-code">#FF6600</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ff0066;"></div><div class="sub-color-code">#FF0066</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #ccff00;"></div><div class="sub-color-code">#CCFF00</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #00ff66;"></div><div class="sub-color-code">#00FF66</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #00ccff;"></div><div class="sub-color-code">#00CCFF</div></div>
+                <div class="sub-color-item"><div class="sub-color-box" style="background-color: #6600ff;"></div><div class="sub-color-code">#6600FF</div></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const mainButtons = document.querySelectorAll('.main-color-button');
+        const subColorCodes = document.querySelectorAll('.sub-color-code');
+
+        mainButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const subColors = document.getElementById(targetId);
+                
+                if (subColors.style.display === 'flex') {
+                    subColors.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.sub-colors-container').forEach(container => {
+                        container.style.display = 'none';
+                    });
+                    subColors.style.display = 'flex';
+                }
+            });
+        });
+
+        subColorCodes.forEach(codeElement => {
+            codeElement.addEventListener('click', () => {
+                const hexCode = codeElement.textContent;
+                
+                navigator.clipboard.writeText(hexCode).then(() => {
+                    alert('คัดลอกโค้ด ' + hexCode + ' แล้ว!');
+                }).catch(err => {
+                    console.error('ไม่สามารถคัดลอกได้:', err);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
