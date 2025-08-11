@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โปรแกรมแสดงโค้ดสี (Responsive)</title>
     <style>
         body {
@@ -12,11 +14,13 @@
         h1 {
             font-size: 24px;
             text-align: center;
+            margin-bottom: 5px;
         }
 
         p {
             text-align: center;
             font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .color-groups-container {
@@ -53,6 +57,7 @@
             margin-top: 5px;
             border-radius: 5px;
             background-color: #f0f0f0;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
         .sub-color-item {
@@ -87,14 +92,14 @@
                 gap: 20px;
             }
             .color-group {
-                width: calc(33.33% - 20px); /* 3 ปุ่มต่อแถว */
+                width: calc(33.33% - 20px);
             }
             .main-color-button {
                 height: 50px;
                 font-size: 16px;
             }
             .sub-colors-container {
-                display: none;
+                padding: 20px;
             }
             .sub-color-item {
                 width: auto;
